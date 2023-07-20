@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dark-theme {
+  --bg-color: #282c35;
+  --font-color: #fff;
+  --clr-primary: #ffa7c4;
+}
+.light-theme {
+  --bg-color: #fff;
+  --font-color: #282c35;
+  --clr-primary: #d23669;
+}
+
+body {
+  font-family: "Teko", sans-serif;
+  background: var(--bg-color);
+  color: var(--font-color);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  transition: all 0.3s linear;
+}
+/* ... previous styles ... */
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.image-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.load-more-button {
+  margin-top: 20px;
+  background-color: #05a081;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 800px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+  }
+}
+
+/* loading........... */
+/* KEYFRAMES */
+
+.loading-circle {
+  width: 130px;
+  height: 130px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  border-top: 2px solid #05a081; /* You can change the color to your preference */
+  animation: spin 1s linear infinite; /* Adjust the animation duration as needed */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .loading-circle {
+    width: 110px;
+    height: 110px;
+  }
+}
